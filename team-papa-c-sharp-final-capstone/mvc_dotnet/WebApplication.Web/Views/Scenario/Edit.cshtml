@@ -1,0 +1,113 @@
+﻿@using WebApplication.Web.Models.Scenario;
+@model WebApplication.Web.Models.Scenario.Scenario
+
+
+@{
+    ViewData["Title"] = "Edit";
+    List<Answer> answerList = TempData["answerList"] as List<Answer>;
+}
+
+<h2>Edit Scenario: @Model.Name</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" name="id" value="@Model.Id" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label">Image URL</label>
+                <input asp-for="ImageName" class="form-control" />
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Question" class="control-label"></label>
+                <input asp-for="Question" class="form-control" />
+                <span asp-validation-for="Question" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="select">
+                    <label asp-for="IsActive" class="control-label">Change Active Status</label>
+                    <select asp-for="IsActive" name="isActive">
+                        <option value="true">Active</option>
+                        <option value="false">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAnswer" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @foreach (Answer answer in answerList)
+            {
+                <div class="form-group">
+                    <input type="hidden" name="id" value="@answer.AnswerId" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@answer.AnswerText">Answer Text</label>
+                    <input asp-for="@answer.AnswerText" name="answerText" class="form-control">
+                    <span asp-validation-for="@answer.AnswerText" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@answer.ResponseText">Response Text</label>
+                    <input asp-for="@answer.ResponseText" name="responseText" class="form-control">
+                    <span asp-validation-for="@answer.ResponseText" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@answer.ResponseImage">Response Image URL</label>
+                    <input asp-for="@answer.ResponseImage" name="responseImage" class="form-control">
+                    <span asp-validation-for="@answer.ResponseImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@answer.Color">Response Color</label>
+                    <select asp-for="@answer.Color" name="responseColor" class="form-control">
+                        <option value="green">Green: Happy</option>
+                        <option value="red">Red: Angry</option>
+                        <option value="blue">Blue: Sad</option>
+                    </select>
+                    <span asp-validation-for="@answer.Color" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@answer.Emoji">Response Emoji URL</label>
+                    <input asp-for="@answer.Emoji" name="emoji" class="form-control">
+                    <span asp-validation-for="@answer.Emoji" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+                <br />
+            }
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="UpdateScenarios">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

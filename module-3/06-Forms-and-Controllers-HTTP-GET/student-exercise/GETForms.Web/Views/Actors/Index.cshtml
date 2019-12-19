@@ -1,0 +1,20 @@
+﻿@model Actor
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>GetForm</h2>
+<form asp-action="FindActors" method="Get">
+
+        LastName: <br />
+        <input type="text" name="lastname" />
+        <input type="submit" value="Run" />
+    </form>
+
+@*<form asp-action="SearchResult" method="Get">
+
+    LastName: <br />
+    <input type="text" name="lastname" value="@Model.LastName" /> <br />
+
+    <input type="submit" value="Run" />
+</form>*@

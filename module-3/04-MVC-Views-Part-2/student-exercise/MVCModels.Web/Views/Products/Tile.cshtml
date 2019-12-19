@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Tile";
+}
+<h2>All Products</h2>
+
+<div id="masonry-page">
+
+    @{
+        ViewData["Action"] = "";
+        ViewData["Controller"] = "";
+    }
+
+    <partial name="_Filters" />
+
+    <!-- Container for all of the Products -->
+    <div id="grid" class="main-content">
+
+        <!-- The following HTML shows different examples of what HTML
+        could be rendered based on different rules. For purposes
+        of demonstration we've written it out so you can see it
+        when you load the page up. -->
+        @foreach (Product product in Model)
+        {
+            string tileTopSeller = "";
+            string soldOut = "";
+
+            @if (product.IsTopSeller == true)
+            {
+                tileTopSeller = "top-seller";
+            }
+        <div class="tile @tileTopSeller ">
+            @if (product.RemainingStock == 0)
+            {
+                soldOut = "sold-out";
+            }
+            <!-- Standard Product -->
+            <div class="tile @soldOut ">
+
+                <!-- Link to the Detail page using the product id (e.g. Products/Detail/1) -->
+                <a class="product-image" asp-controller="Products" asp-action="Detail" asp-route-id=@product.Id>
+                    <img src="~/images/product-images/@product.ImageName" />
+                </a>
+                <div class="details">
+                    <p class="name"><a href="#">@product.Name</a></p>
+
+                    <!-- .filled will make the star solid -->
+                    <div class="rating">
+                        @if (product.AverageRating == 0)
+                        {
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                        }
+                        else if (product.AverageRating == 1)
+                        {
+                            <span class="filled">&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                        }
+                        else if (product.AverageRating == 2)
+                        {
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                        }
+                        else if (product.AverageRating == 3)
+                        {
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span>&#9734;</span>
+                            <span>&#9734;</span>
+                        }
+                        else if (product.AverageRating == 4)
+                        {
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span>&#9734;</span>
+                        }
+                        else
+                        {
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                            <span class="filled">&#9734;</span>
+                        }
+                    </div>
+
+                    <p class="price">@product.Price</p>
+                </div>
+            </div>
+
+            <!-- Add the Top Seller <br/> and product alert
+    if the product is considered a Top Seller -->
+            @if (product.IsTopSeller == true)
+            {
+                <span class="banner top-seller">Top Seller!</span>
+
+            }
+
+            <!--
+    Add the X remaining product alert if the remaining
+    quantity is greater than 0, but less than or equal to 5-->
+            @if (product.RemainingStock > 0 && product.RemainingStock <= 5)
+            {
+                <p class="product-alert">@product.RemainingStock remaining!</p>
+                <p class="price">$@product.Price</p>
+            }
+
+            <!-- Add the .sold-out class if the Remaining Stock is 0 -->
+            @if (product.RemainingStock == 0)
+            {
+                <span class="banner">Sold Out</span>
+            }
+        </div>
+        }
+
+
+    </div>
+</div>

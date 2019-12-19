@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Post.Web.Models.Review>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+
+<img style="height:25px" src="~/images/forDummies.png" />
+
+<h2>Past Reviews</h2>
+<body class="reviews">
+
+    @foreach (var item in Model)
+    {
+        <div>
+            @Html.DisplayFor(modelItem => item.ReviewTitle)
+
+            @for (int i = 0; i < item.Rating; i++)
+            {
+                if (item.Rating == 5)
+                {
+                    <img style="width:16px" src="~/images/star.png" />
+                }
+                else if (item.Rating == 4)
+                {
+                    <img style="width:16px" src="~/images/star.png" />
+                }
+                else if (item.Rating == 3)
+                {
+                    <img style="width:16px" src="~/images/star.png" />
+                }
+                else if (item.Rating == 2)
+                {
+                    <img style="width:16px" src="~/images/star.png" />
+                }
+                else if (item.Rating == 1)
+                {
+                    <img style="width:16px" src="~/images/star.png" />
+                }
+            }
+        </div>
+
+        <div>
+            by @Html.DisplayFor(modelItem => item.Username) on  @Html.DisplayFor(modelItem => item.ReviewDate)
+        </div>
+        <br />
+        <div>
+            @Html.DisplayFor(modelItem => item.ReviewText)
+        </div>
+        <br />
+    }
+</body>
+
+
+<p>
+    <a asp-action="NewReview">Submit a new review</a>
+</p>

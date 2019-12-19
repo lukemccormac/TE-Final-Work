@@ -1,0 +1,77 @@
+﻿@model IEnumerable<TechElevator.Web.Models.Post>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.UserImage)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.PostImage)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Likes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasBeenLiked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caption)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.UserImage)
+            </td>*@
+            <td>
+                <img style="height:50px;width:50px;"src=@Html.DisplayFor(modelItem => item.PostImage)>
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Likes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasBeenLiked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Caption)
+            </td>*@
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                <a asp-controller="Post" asp-action="Edit" asp-route-id=@item.Id>Edit</a> |
+                <a asp-controller="Post" asp-action="Details" asp-route-id=@item.Id>Details</a> |
+                <a asp-controller="Post" asp-action="Delete" asp-route-id=@item.Id>Delete</a>
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

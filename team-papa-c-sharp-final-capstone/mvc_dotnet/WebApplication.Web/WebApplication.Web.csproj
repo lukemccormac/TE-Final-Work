@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UseRazorBuildServer>false</UseRazorBuildServer>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\images\Classroom\**" />
+    <Compile Remove="wwwroot\images\Hallway\**" />
+    <Compile Remove="wwwroot\images\Soccer\**" />
+    <Content Remove="wwwroot\images\Classroom\**" />
+    <Content Remove="wwwroot\images\Hallway\**" />
+    <Content Remove="wwwroot\images\Soccer\**" />
+    <EmbeddedResource Remove="wwwroot\images\Classroom\**" />
+    <EmbeddedResource Remove="wwwroot\images\Hallway\**" />
+    <EmbeddedResource Remove="wwwroot\images\Soccer\**" />
+    <None Remove="wwwroot\images\Classroom\**" />
+    <None Remove="wwwroot\images\Hallway\**" />
+    <None Remove="wwwroot\images\Soccer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\images\outdoorscenario.PNG" />
+    <Content Remove="wwwroot\images\placeholder.png" />
+    <Content Remove="wwwroot\images\soccerdosaynothing.PNG" />
+    <Content Remove="wwwroot\images\soccerscenario.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="79.0.3945.3600" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+  </ItemGroup>
+
+</Project>

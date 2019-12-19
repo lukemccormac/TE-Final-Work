@@ -1,0 +1,93 @@
+﻿@model AlienTravelModel
+
+@{
+    ViewData["Title"] = "AlienTravelResult";
+    long finalAge = 0;
+    long travelTime = 0;
+    int speed = 0;
+}
+
+<style>
+
+    #calculatorResult {
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 10px;
+    }
+
+    #Planet {
+        max-height: 200px;
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+
+    h3 {
+        grid-column-start: 2;
+        font-weight: bold;
+        font-size: 16px;
+    }
+</style>
+
+<section id="calculatorResult" class="centeredPanel">
+
+    @switch (Model.ModeOfTransportation)
+    {
+        case "Walking":
+            speed = 3;
+            break;
+        case "Car":
+            speed = 100;
+            break;
+        case "BulletTrain":
+            speed = 200;
+            break;
+        case "Boeing747":
+            speed = 570;
+            break;
+        case "Concorde":
+            speed = 1350;
+            break;
+    }
+
+
+
+    @switch (Model.Planet)
+    {
+        case "Mercury":
+            travelTime = 56974146 / speed / (24 * 365);
+            finalAge = Model.EarthAge + travelTime;
+            <img id="Planet" src=~/images/mercury.jpg />
+            break;
+        case "Venus":
+            travelTime = 25724767 / speed / (24 * 365);
+            finalAge = Model.EarthAge + travelTime;
+            break;
+        case "Mars":
+            travelTime = 48678219 / speed / (24 * 365);
+            finalAge = Model.EarthAge + travelTime;
+            break;
+        case "Jupiter":
+            travelTime = 390674710 / speed / (24 * 365);
+            finalAge = Model.EarthAge + travelTime;
+            break;
+        case "Saturn":
+            travelTime = 792248270 / speed / (24 * 365);
+            finalAge = Model.EarthAge + travelTime;
+            break;
+        case "Uranus":
+            travelTime = 1692662530 / speed / (24 * 365);
+            finalAge = Model.EarthAge + travelTime;
+            break;
+        case "Neptune":
+            travelTime = 2703959960 / speed / (24 * 365);
+            finalAge = Model.EarthAge + travelTime;
+            break;
+    }
+
+    <h3> Traveling by @Model.ModeOfTransportation you will reach @Model.Planet in @travelTime years. You will be @finalAge years old.</h3>
+
+
+
+
+</section>
+

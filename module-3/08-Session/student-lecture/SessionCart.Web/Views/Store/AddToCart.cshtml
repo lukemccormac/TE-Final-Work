@@ -1,0 +1,36 @@
+﻿@using System.Collections.Generic
+
+<<<<<<< HEAD
+@model List<int>  
+=======
+@model List<int>
+>>>>>>> 3dd7869fea3a4d8a11a2305dc9c59bba5c970d5d
+@{
+    ViewData["Title"] = "AddToCart";
+}
+
+<<<<<<< HEAD
+<h2>List of Items in Cart</h2>
+
+<ul>
+    @foreach (int item in Model)
+    {
+        <li>@item</li>
+
+    }
+</ul>
+
+<a asp-action="index" class="btn btn-danger">Buy More Stuff</a>
+=======
+<h2>List of Items in cart</h2>
+
+<ul>
+@foreach(int item in Model)
+{
+<li>@item</li>
+}
+</ul>
+
+<a asp-action="index" class="btn btn-warning">Buy More Stuff</a>
+
+>>>>>>> 3dd7869fea3a4d8a11a2305dc9c59bba5c970d5d

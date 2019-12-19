@@ -1,0 +1,40 @@
+﻿@model CityView
+
+@{
+    ViewData["Title"] = "GetForm";
+}
+
+<h2>GetForm</h2>
+
+@*<form asp-action="GetCities" method="Get">
+
+    CountryCode: <br />
+    <input type="text" name="countryCode" />
+    <input type="submit"  value="Run" />
+</form>*@
+
+
+@*<form asp-action="GetCities" method="Get">
+
+    CountryCode: <br />
+    <input type="text" name="countryCode" /> <br />
+
+    District:
+    <input type="text" name="district" /> <br />
+
+    <input type="submit" value="Run" />
+</form>*@
+
+
+<form asp-action="GetCities" method="Get">
+
+    CountryCode: <br />
+    <input type="text" name="CountryCode" value="@Model.CountryCode"/> <br />
+
+    District: <br />
+    <input type="text" name="District"  value="@Model.District"/> <br />
+
+    <input type="submit" value="Run" />
+</form>
+
+

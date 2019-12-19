@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Index2";
+
+    Television viewTelevision = new Television();
+    Television tempTelevision = new Television();
+    Television viewBagTelevision = new Television();
+
+
+    if (ViewData["ViewTelevision"] != null)
+    {
+        viewTelevision = ViewData["ViewTelevision"] as Television;
+    }
+
+    if (TempData["TempTelevision"] != null)
+    {
+        tempTelevision = TempData["TempTelevision"] as Television;
+    }
+
+    if (ViewBag.ViewBagTelevision != null)
+    {
+        viewBagTelevision = ViewBag.ViewBagTelevision;
+    }
+
+}
+
+<h2>Index2</h2>
+
+<h1> The ViewDate information passed was @viewTelevision.Name</h1>
+<br />
+<h1> The TempDate information passed was @tempTelevision.SerialNumber</h1>
+<br />
+<h1> The ViewBag information passed was @viewBagTelevision.Name</h1>
+
+

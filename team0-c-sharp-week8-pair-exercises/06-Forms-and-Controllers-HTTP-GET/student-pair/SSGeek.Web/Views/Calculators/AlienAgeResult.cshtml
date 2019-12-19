@@ -1,0 +1,72 @@
+﻿@model AlienAgeModel
+
+@{
+    ViewData["Title"] = "AlienAgeResult";
+    double alienAge = 0;
+    string image = "";
+}
+
+<style>
+
+    #calculatorResult{
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 10px;
+    }
+
+    #Planet{
+        max-height: 200px;
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+
+    h3{
+        grid-column-start:2;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+</style>
+
+<section id="calculatorResult" class="centeredPanel">
+
+
+    @switch (Model.Planet)
+    {
+        case "Mercury":
+            alienAge = Model.EarthAge * 365.26 / 87.96;
+            <img id="Planet" src=~/images/mercury.jpg />
+            break;
+        case "Venus":
+            alienAge = Model.EarthAge * 365.26 / 224.68;
+            <img id="Planet" src=~/images/venus.jpg />
+            break;
+        case "Mars":
+            alienAge = Model.EarthAge * 365.26 / 686.98;
+            <img id="Planet" src=~/images/mars.jpg />
+            break;
+        case "Jupiter":
+            alienAge = Model.EarthAge / 11.862;
+            <img id="Planet" src=~/images/jupiter.jpg />
+            break;
+        case "Saturn":
+            alienAge = Model.EarthAge / 29.456;
+            <img id="Planet" src=~/images/saturn.jpg />
+            break;
+        case "Uranus":
+            alienAge = Model.EarthAge / 164.81;
+            <img id="Planet" src=~/images/uranus.jpg />
+            break;
+        case "Neptune":
+            alienAge = Model.EarthAge / 247.7;
+            <img id="Planet" src=~/images/neptune.jpg />
+            break;
+    }
+
+    <h3> If you are @Model.EarthAge years old on planet Earth, then you are @alienAge @Model.Planet years old.</h3>
+
+
+
+
+</section>
+

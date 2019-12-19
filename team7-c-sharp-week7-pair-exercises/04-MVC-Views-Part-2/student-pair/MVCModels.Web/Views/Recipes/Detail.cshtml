@@ -1,0 +1,60 @@
+﻿@model MVCModels.Web.Models.Recipe
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<style>
+    #image{
+        float: left;
+        padding-right: 20px;
+
+    }
+
+    img{
+        width: 250px;
+    }
+
+</style>
+
+
+
+
+<h2>Recipe Detail</h2>
+
+<div>
+    <div id="image">
+        <img src="~/images/@Model.ImageName" />
+    </div>
+
+    <h3>@Model.Name</h3>
+    <p>@Model.RecipeType</p><br />
+
+    <p><b>Cook Time</b> @Model.CookTimeInMinutes minutes</p>
+
+    <p>@Model.Description</p>
+
+    <br />
+    <h4>Ingredients</h4>
+
+    <ul>
+        @foreach (Ingredient ingredient in Model.Ingredients)
+        {
+            <li>@ingredient.Quantity @ingredient.Name</li>
+        }
+
+    </ul>
+
+
+    <h4>Preparation</h4>
+
+    <ol>
+        @foreach (String steps in Model.PreparationSteps)
+        {
+            <li>@steps</li>
+        }
+
+    </ol>
+
+</div>
+

@@ -1,0 +1,34 @@
+﻿@model SSGeek.Web.Models.Product
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<section class="centeredPanel">
+
+    <div>
+        <h4>Solar System Geek Gift Shop</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dd>
+                <img id="@Model.ImageName" src="~/images/@Model.ImageName" />
+            </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <form asp-action="AddToCart" asp-controller="Store" method="post">
+            <input type="hidden" asp-for=@Model.ProductId />
+            <input type="hidden" name="quantity" value="10" />
+            <button>Add to Cart</button>
+        </form>
+    </div>
+</section>

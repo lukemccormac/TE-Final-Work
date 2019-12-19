@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Fibonacci";
+    int max = (int)ViewData["max"];
+    int firstNum = 0;
+    int secondNum = 1;
+    int result = 0;
+}
+
+
+<nav id="page-options">
+    <ul>
+        <li><a asp-controller="Home" asp-action="Fibonacci" asp-route-max="20">20</a></li>
+        <li><a asp-controller="Home" asp-action="Fibonacci" asp-route-max="50">50</a></li>
+        <li><a asp-controller="Home" asp-action="Fibonacci" asp-route-max="100">100</a></li>
+    </ul>
+</nav>
+
+<h1>@max</h1>
+
+<ul id="fibonacci">
+
+
+    @while (secondNum < max - firstNum)
+
+    {
+
+        result = firstNum;
+        firstNum = secondNum;
+        secondNum = result += firstNum;
+
+        <li>@result</li>
+    }
+
+</ul>

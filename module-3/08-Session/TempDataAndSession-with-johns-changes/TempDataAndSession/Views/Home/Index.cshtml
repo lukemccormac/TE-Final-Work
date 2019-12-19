@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Television viewTelevision = ViewData["ViewTelevision"] as Television;
+    Television tempTelevision = TempData["TempTelevision"] as Television;
+    Television viewBagTelevision = ViewBag.ViewBagTelevision;
+}
+
+<h2>index page of the home controller</h2>
+
+<h1> The ViewDate information passed was @viewTelevision.Name</h1>
+<br />
+<h1> The TempDate information passed was @tempTelevision.SerialNumber</h1>
+<br />
+<h1> The ViewBag information passed was @viewBagTelevision.Name</h1>
+
+<a asp-action="index2" class="btn-success">Index2</a>
+

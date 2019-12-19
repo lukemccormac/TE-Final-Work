@@ -1,0 +1,19 @@
+﻿@using System.Collections.Generic
+
+@model List<int>
+@{
+    ViewData["Title"] = "AddToCart";
+}
+
+<h2>List of Items in cart</h2>
+<h2>Session id: @ViewBag.SessionId</h2>
+
+<ul>
+@foreach(int item in Model)
+{
+<li>@item</li>
+}
+</ul>
+
+<a asp-action="index" class="btn btn-warning">Buy More Stuff</a>
+

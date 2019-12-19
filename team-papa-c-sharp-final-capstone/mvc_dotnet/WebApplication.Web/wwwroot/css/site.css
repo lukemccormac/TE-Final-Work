@@ -1,0 +1,319 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 2%;
+}
+
+.answer {
+    background-color: darkblue;
+    padding: 14px 25px;
+    margin: 5px 0px 5px 0px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 25px;
+    font-weight: 700;
+    color: white;
+}
+
+    .answer:hover {
+        background-color: green;
+        text-decoration: none !important;
+        color: white;
+    }
+
+.scenario-grid {
+    display: grid;
+    grid-template-areas: 'image question';
+}
+
+
+.scenario-image {
+    width: 75%;
+    grid-area: image;
+}
+
+.question-div {
+    grid-area: question;
+}
+
+.page {
+    margin-top: 150px;
+}
+
+.flex-container > div {
+    width: 50%;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+#response-image {
+    width: 80%;
+    border: solid 2px black;
+}
+
+dl {
+    margin-top: -50px;
+}
+
+dd {
+    text-align: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.navigation {
+    font: bold 20px arial, verdana;
+}
+
+.response-nav {
+    font: bold 20px arial, verdana;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.response-nav > a {
+    margin-left: 15px;
+}
+
+body {
+    background-color: lightgoldenrodyellow;
+}
+
+#student-answer {
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-size: x-large;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.home-page {
+    text-align: center;
+    margin-top: 5%;
+}
+
+#home-disc {
+    font-size: large;
+}
+
+.home-spacing {
+    margin: 20px;
+}
+
+#mainnavbar {
+    background-color: cornflowerblue;
+}
+
+    #mainnavbar a {
+        color: white;
+    }
+
+.body-styling {
+    text-align: center;
+    font-size: 15px;
+}
+
+
+#home-logo {
+    border-radius: 12%;
+    width: 25%;
+}
+
+#nav-logo {
+    height: 100%;
+    margin-right: 8px;
+    border-radius: 12%;
+}
+
+.maintitle {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.role {
+    display: inline-block;
+    text-align: center;
+}
+
+
+li {
+    float: left;
+}
+
+    li a, .dropbtn {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li.dropdown {
+        display: inline-block;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: darkgray;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+.dropdown-content a:hover {
+    background-color: cornflowerblue;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-collapse.in {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-collapse.in {
+    overflow-y: visible;
+}
+
+#begin-assignment {
+    font-weight: bold;
+    background-color: lightgoldenrodyellow;
+    color: cornflowerblue;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    #begin-assignment:hover {
+        background-color: cornflowerblue;
+        text-decoration: none;
+        color: white;
+        padding: 1px;
+    }
+
+.response-red {
+    color: red;
+}
+
+.response-green {
+    color: green;
+}
+
+.response-blue {
+    color: blue;
+}
+
+#emoji {
+    border-radius: 100%;
+    width: 25%;
+}
+
+@media only screen and (max-width: 600px) {
+    .answer {
+        padding: 8px;
+        margin: 5px 0px 5px 0px;
+    }
+
+    .scenario-image {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    dd {
+        font-size: 20px;
+    }
+
+    dl {
+        margin-top: -10px;
+    }
+
+    #response-image {
+        margin-top: 12px;
+        width: 85%;
+    }
+
+    .navigation > a {
+        font-size: 15px;
+    }
+
+    .question-div {
+        margin-left: 10px;
+    }
+
+    .scenario-description {
+        font-size: 20px;
+    }
+
+    #go-to-response {
+        font-size: 10px;
+    }
+
+    .table {
+        font-size: 9px;
+    }
+
+    .review-header {
+        font-size: 20px;
+    }
+
+    .index-text {
+        font-size: 24px;
+    }
+
+    .navigation.index-text {
+        font-size: 20px;
+    }
+
+    .maintitle {
+        font-size: 24px;
+    }
+}

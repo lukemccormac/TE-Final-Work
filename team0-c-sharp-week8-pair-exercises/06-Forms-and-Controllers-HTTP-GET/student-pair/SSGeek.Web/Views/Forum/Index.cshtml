@@ -1,0 +1,31 @@
+﻿@model IList<ForumPost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="Index" class="centeredPanel">
+    <h2>Solar System Geek Forum</h2>
+
+    <p>
+        <a asp-action="NewPost">Post a Message</a>
+    </p>
+    <table class="table">
+        <tbody>
+            @foreach (ForumPost item in Model)
+            {
+                        <tr>
+                            <td id ="subject">
+                               @item.Subject <br />
+                            </td>
+                            <td>
+                                by @item.UserName on @item.TimeOfPost <br /> <br />
+                            </td>
+                            <td>
+                                @item.Message
+                            </td>
+                        </tr>
+                }
+        </tbody>
+    </table>
+    </section>

@@ -1,0 +1,26 @@
+﻿@model Review
+@{
+    ViewData["Title"] = "NewReview";
+}
+<section class="centeredPanel">
+    <h2>New Geek Post </h2>
+
+    <form asp-controller="Home" asp-action="NewReview" method="post">
+
+        <br />
+
+        Enter Your Name:
+        <input type="text" name="Username" value=@Model.Username /><br />
+        How many stars:
+        <input type="text" name="Rating" value=@Model.Rating /><br />
+        Provide a title:
+        <input type="text" name="ReviewTitle" value=@Model.ReviewTitle /><br />
+        Review:
+        <input type="text" name="ReviewText" value=@Model.ReviewText /><br />
+
+        <input type="submit" value="Submit!" />
+
+        <input type="hidden" asp-for="ReviewDate" value="@DateTime.Now" />
+    </form>
+
+</section>

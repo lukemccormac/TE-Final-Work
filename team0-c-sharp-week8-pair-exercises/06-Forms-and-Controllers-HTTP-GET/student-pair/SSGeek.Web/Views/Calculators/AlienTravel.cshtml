@@ -1,0 +1,42 @@
+﻿@model AlienTravelModel
+
+@{
+    ViewData["Title"] = "AlienTravel";
+}
+
+<section class="centeredPanel">
+    <h2>Alien Travel</h2>
+
+    <form asp-action="AlienTravelResult" method="get">
+
+        Choose a planet: <br />
+
+        <select name="Planet">
+            <option value="Mercury">Mercury</option>
+            <option value="Venus">Venus</option>
+            <option value="Mars">Mars</option>
+            <option value="Jupiter">Jupiter</option>
+            <option value="Saturn">Saturn</option>
+            <option value="Neptune">Neptune</option>
+            <option value="Uranus">Uranus</option>
+        </select>
+        <br />
+
+        Choose a mode of transportation: <br />
+
+        <select name="ModeOfTransportation">
+            <option value="Walking">Walking</option>
+            <option value="Car">Car</option>
+            <option value="BulletTrain">Bullet Train</option>
+            <option value="Boeing747">Boeing 747</option>
+            <option value="Concorde">Concorde</option>
+        </select>
+
+        Enter your Earth Age: <br />
+        <input type="text" name="EarthAge" value="@Model.EarthAge" /><br />
+        <input type="submit" value="Calculate Age" />
+    </form>
+
+</section>
+
+

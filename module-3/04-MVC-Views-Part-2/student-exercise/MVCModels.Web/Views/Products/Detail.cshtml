@@ -1,0 +1,80 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Detail";
+}
+<h2>Product Page</h2>
+
+<!-- Container for the Product -->
+<div id="product-detail">
+    <img src="~/images/product-images/@Model.ImageName"/>
+    <div class="product-description">
+        <h3>
+            @Model.Name
+        </h3>
+
+        <!-- .filled will make the star solid -->
+        <div class="rating">
+            @if (Model.AverageRating == 0)
+            {
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+            }
+            else if (Model.AverageRating == 1)
+            {
+                <span class="filled">&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+            }
+            else if (Model.AverageRating == 2)
+            {
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+            }
+            else if (Model.AverageRating == 3)
+            {
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+            }
+            else if (Model.AverageRating == 4)
+            {
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span>&#9734;</span>
+            }
+            else
+            {
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+                <span class="filled">&#9734;</span>
+            }
+        </div>
+        <!-- Include this if the product has a Remaining Stock of 5 or less -->
+        @if (Model.Price <= 5)
+        {
+            <p class="alert-remaining">BUY NOW! Only @Model.RemainingStock left!</p>
+        }
+        <p class="description">@Model.Description</p>
+        <p class="price">@Model.Price</p>
+
+        <!-- If item is in stock -->
+        <button class="action">Add to Cart</button>
+        <!-- OR if item is out of stock -->
+        <!--<button disabled>Sold Out</button>-->
+
+    </div>
+</div>

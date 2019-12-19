@@ -1,0 +1,40 @@
+﻿@model HelloWorld.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+           EMployee Id
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+    </dl>
+</div>
+
+<partial name="EmployeeNote" />
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = @Model.Id }) 
+    <a asp-action="Edit" asp-controller="Employee" asp-route-id=@Model.Id>Edit</a>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,102 @@
+﻿
+@model IEnumerable<MVCModels.Web.Models.Recipe>
+@{
+    ViewData["Title"] = "Index";
+    int counter = 0;
+    var imageHolder = "";
+}
+
+<h2>All Recipes</h2>
+
+<style>
+    img {
+        width: 300px;
+    }
+
+    p img {
+        width: 75px;
+        display: inline-block;  
+        vertical-align: bottom;
+        position: absolute;
+    }
+
+    p, #counter {
+        display: inline-block;
+
+    }
+
+    h3 {
+        word-wrap: break-word;
+
+
+    }
+
+    #counter {
+        float:right;
+    }
+     
+    #recipeBody {
+        background-color: lightyellow;
+        height: 75px;
+        width: 300px;
+        word-wrap: break-word;
+    }
+
+    #recipeDisplay {
+        display: inline-block;
+        padding-right: 30px;
+        height: 350px;
+        vertical-align: top;
+    }
+</style>
+
+
+<div id="recipe">
+    @foreach (Recipe recipe in Model)
+    {
+
+        <div id="recipeDisplay">
+            <div id="image">
+                <img src="~/images/@recipe.ImageName" />
+            </div>
+
+            <div id="recipeBody">
+                <b><a asp-controller="Recipes" asp-action="Detail" asp-route-id=@recipe.Id>@recipe.Name</a></b>
+
+                <div>
+                    @if (recipe.AverageRating > 0 && recipe.AverageRating < 2)
+                    {
+                        imageHolder = "1-star.png";
+                    }
+                    else if (recipe.AverageRating >= 2 && recipe.AverageRating < 3)
+                    {
+                        imageHolder = "2-star.png";
+                    }
+                    else if (recipe.AverageRating >= 3 && recipe.AverageRating < 4)
+                    {
+                        imageHolder = "3-star.png";
+                    }
+                    else if (recipe.AverageRating >= 4 && recipe.AverageRating < 5)
+                    {
+                        imageHolder = "4-star.png";
+                    }
+                    else if (recipe.AverageRating >= 5)
+                    {
+                        imageHolder = "5-star.png";
+                    }
+                </div>
+
+
+                @foreach (Ingredient ingredient in recipe.Ingredients)
+                {
+                    counter++;
+                }
+
+                <p><img src="~/images/@imageHolder " id="stars" /><div id="counter">@counter ingredients</div></p>
+
+            </div>
+        </div>
+    }
+
+</div>
+

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Alien Weight";
+}
+
+<section class="centeredPanel">
+
+    <h2>Alien Weight Calculator</h2>
+
+
+    <form asp-action="AlienWeightResult" method="get">
+
+        Choose a planet:             
+
+        <select name="Planet">
+            <option value="Mercury">Mercury</option>
+            <option value="Venus">Venus</option>
+            <option value="Mars">Mars</option>
+            <option value="Jupiter">Jupiter</option>
+            <option value="Saturn">Saturn</option>
+            <option value="Neptune">Neptune</option>
+            <option value="Uranus">Uranus</option>
+        </select>
+        <br />
+
+        Enter your Earth Weight:            
+        <input type="text" name="EarthWeight" value="@Model.EarthWeight" /><br />
+        <input type="submit" value="Calculate Weight" />
+    </form>
+
+</section>

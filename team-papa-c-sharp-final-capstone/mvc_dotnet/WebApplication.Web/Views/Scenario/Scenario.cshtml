@@ -1,0 +1,27 @@
+﻿@model WebApplication.Web.Models.Scenario.Scenario
+
+@{
+    ViewData["Title"] = "Scenario";
+}
+
+<h2 class="scenario-description">@Model.Description</h2>
+
+<div class="scenario-grid">
+
+    <img src=@Model.ImageName class="scenario-image">
+
+    <div class="question-div">
+        <div>
+            <h3 class="question">@Html.DisplayFor(model => model.Question)</h3>
+        </div>
+        <div class="answer-list">
+            @foreach (var item in Model.AnswerList)
+            {
+                <div>
+                    <a class="answer" id="go-to-response" asp-action="Response" asp-route-id="@item.AnswerId">@item.AnswerText</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

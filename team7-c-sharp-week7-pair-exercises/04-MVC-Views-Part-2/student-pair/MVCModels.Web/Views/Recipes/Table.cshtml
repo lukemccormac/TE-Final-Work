@@ -1,0 +1,103 @@
+﻿@model IEnumerable<MVCModels.Web.Models.Recipe>
+
+@{
+    ViewData["Title"] = "Table";
+    var imageHolder = "";
+    int counter = 0;
+}
+
+
+<style>
+    th {
+    }
+
+    #rowHeadings{
+        float: left;
+        padding-top: 100px;
+    }
+    #wholeRecipe{
+        display: inline-block;
+        margin-right: -4px;
+        text-align: center;
+        width: 350px;
+        vertical-align: top;
+
+    }
+    #name, #cook,#rating{
+        background-color: #D9FCB0;
+    }
+
+    #type, #ingredients {
+        background-color: white;
+    }
+
+    #stars{
+        height: 20px;
+    }
+
+    img{
+        height: 100px;
+        width:150px;
+        padding-bottom:5px;
+    }
+
+</style>
+
+
+
+<h2>All Recipe</h2>
+
+<div id="rowHeadings">
+    <p><b>Name</b></p>
+    <p><b>Type</b></p>
+    <p><b>Cook Type</b></p>
+    <p><b>Ingredients</b></p>
+    <p><b>Rating</b></p>
+
+</div>
+
+
+
+@foreach (var item in Model)
+{
+<div id="wholeRecipe">
+    <a asp-controller="Recipes" asp-action="Detail" asp-route-id=@item.Id><img src="~/images/@item.ImageName"></a>
+    <p id="name">@item.Name</p>
+    <p id="type">@item.RecipeType</p>
+    <p id="cook">@item.CookTimeInMinutes mins</p>
+
+    @foreach (Ingredient ingredient in item.Ingredients)
+    {
+        counter++;
+    }
+
+    <p id="ingredients">@counter  ingredients</p>
+
+    <div>
+        @if (item.AverageRating > 0 && item.AverageRating < 2)
+        {
+            imageHolder = "1-star.png";
+        }
+        else if (item.AverageRating >= 2 && item.AverageRating < 3)
+        {
+            imageHolder = "2-star.png";
+        }
+        else if (item.AverageRating >= 3 && item.AverageRating < 4)
+        {
+            imageHolder = "3-star.png";
+        }
+        else if (item.AverageRating >= 4 && item.AverageRating < 5)
+        {
+            imageHolder = "4-star.png";
+        }
+        else if (item.AverageRating >= 5)
+        {
+            imageHolder = "5-star.png";
+        }
+    </div>
+
+    <p id="rating"><img id="stars" src="~/images/@imageHolder" /></p>
+    
+</div>
+}
+

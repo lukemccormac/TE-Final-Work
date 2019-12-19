@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Hello";
+    int result = 7;
+    // this is a comment
+}
+
+<h2>Hello</h2>
+<h3>This is the Hello view</h3>
+
+<h1> @result </h1>
+
+<ul>
+    @* this is a comment *@
+
+    @for (int i = 0; i < 100; i++)
+    {
+        if (i < 50)
+        {
+            <li style="color:red"> @(i + 1) </li>
+        }
+        else
+        {
+            <li style="color:blue"> @(i + 1) </li>
+        }
+
+    }
+</ul>
+<!-- THis is a comment -->

@@ -1,0 +1,31 @@
+﻿@using WebApplication.Web.Models.Account;
+@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="body-styling">
+    <h2 class="maintitle">Student Register</h2>
+
+    <form asp-controller="account" asp-action="register" method="post">
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input type="email" asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword"></label>
+            <input type="password" asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="Register" class="btn btn-default" id="Register"/>
+
+    </form>
+</div>

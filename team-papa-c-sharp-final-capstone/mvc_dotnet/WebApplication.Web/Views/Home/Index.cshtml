@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="body-styling">
+    <h1 class="maintitle">Welcome to SociEmoti</h1>
+
+    <img id="home-logo" src=~/images/SociEmoti-Logo.png alt="SociEmoti Logo">
+
+    <div class="home-spacing">
+        <p id="home-disc">What would you like to do?</p>
+    </div>
+
+    <div class="home-spacing">
+
+        <a class="navigation" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+    </div>
+    <div class="home-spacing">
+        <a class="navigation" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+    </div>
+</div>

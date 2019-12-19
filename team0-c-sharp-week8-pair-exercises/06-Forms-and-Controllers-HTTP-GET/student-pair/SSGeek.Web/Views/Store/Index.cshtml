@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SSGeek.Web.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<section id="Index" class="centeredPanel">
+
+    <h2>Solar System Geek Gift Shop</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <tbody>
+            @foreach (Product item in Model)
+            {
+            <tr>
+                <td>
+                    <a asp-action="Detail" asp-route-id=@item.ProductId method="get"><img id="@item.ImageName" src="~/images/@item.ImageName" /></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</section>

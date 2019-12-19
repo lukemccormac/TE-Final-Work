@@ -1,0 +1,25 @@
+﻿@model ForumPost
+@{
+    ViewData["Title"] = "NewPost";
+}
+<section class="centeredPanel">
+    <h2>New Geek Post </h2>
+
+    <form asp-action="NewPost" method="post">
+
+        <br />
+        <div asp-validation-summary="All">
+            </div>
+            Username
+            <input type="text" name="UserName" value=@Model.UserName /><br />
+            Subject
+            <input type="text" name="Subject" value=@Model.Subject /><br />
+            Message
+            <input type="text" name="Message" value=@Model.Message /><br />
+            Submit!
+            <input type="submit" value="NewPost" />
+</form>
+
+</section>
+
+
